@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Client</title>
+    <link rel="icon" type="image/png" href="P.png"> <!-- Hier "P.png" durch den Dateinamen deines Icons ersetzen -->
+    <style>
+        body {
+            background-color: #333; /* Dunkelgraue Hintergrundfarbe */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            flex-direction: column;
+        }
+
+        .pc {
+            font-family: Arial, Helvetica, sans-serif;
+            color: aliceblue;
+            font-size: 36px; /* Ändere die Schriftgröße des Titels */
+            margin-bottom: 20px; /* Ändere den Abstand zwischen Titel und Beschreibung */
+        }
+
+        .pb {
+            font-family: Arial, Helvetica, sans-serif;
+            color: aliceblue;
+            width: 70%; /* Ändere die Breite der Beschreibung */
+            font-size: 18px; /* Ändere die Schriftgröße der Beschreibung */
+            line-height: 1.5; /* Ändere die Zeilenhöhe für bessere Lesbarkeit */
+            text-align: center; /* Zentriere den Text horizontal */
+        }
+
+        /* Textanimation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .animated {
+            animation: fadeIn 1s ease-in-out; /* Ändere die Animationsdauer und den Übergangseffekt */
+        }
+    </style>
+</head>
+<body>
+    <h1 class="pc animated">Pulse Client</h1>
+    <p class="pb animated">Der Pulse Client befindet sich noch in der Entwicklung. Auf der Website werden in den nächsten Monaten immer mehr Funktionen hinzugefügt. Weitere Informationen folgen.</p>
+</body>
+</html>
