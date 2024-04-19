@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pulse Client</title>
     <link rel="icon" type="image/png" href="P.png"> <!-- Hier "P.png" durch den Dateinamen deines Icons ersetzen -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS einbinden -->
+
     <style>
         body {
             background-color: #333; /* Dunkelgraue Hintergrundfarbe */
@@ -15,6 +17,7 @@
             margin: 0;
             padding: 0;
             flex-direction: column;
+            position: relative;
         }
 
         .pc {
@@ -22,6 +25,7 @@
             color: aliceblue;
             font-size: 36px; /* Ändere die Schriftgröße des Titels */
             margin-bottom: 20px; /* Ändere den Abstand zwischen Titel und Beschreibung */
+            animation: fadeIn 1s ease-in-out; /* Textanimation */
         }
 
         .pb {
@@ -31,6 +35,26 @@
             font-size: 18px; /* Ändere die Schriftgröße der Beschreibung */
             line-height: 1.5; /* Ändere die Zeilenhöhe für bessere Lesbarkeit */
             text-align: center; /* Zentriere den Text horizontal */
+            animation: fadeIn 1s ease-in-out; /* Textanimation */
+        }
+
+        .social-buttons {
+            margin-top: 20px; /* Ändere den oberen Abstand der Social Buttons */
+            animation: fadeIn 1s ease-in-out; /* Textanimation */
+        }
+
+        .social-button {
+            margin: 0 10px; /* Ändere den Abstand zwischen den Buttons */
+        }
+
+        .copyright {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #aaa; /* Ändere die Farbe des Copyright-Textes */
+            font-size: 14px; /* Ändere die Schriftgröße des Copyright-Textes */
+            position: absolute;
+            bottom: 10px; /* Ändere den unteren Abstand des Copyright-Textes */
+            left: 10px; /* Ändere den rechten Abstand des Copyright-Textes */
+            animation: fadeIn 1s ease-in-out; /* Textanimation */
         }
 
         /* Textanimation */
@@ -38,23 +62,16 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
-
-        .animated {
-            animation: fadeIn 1s ease-in-out; /* Ändere die Animationsdauer und den Übergangseffekt */
-        }
-
-        .copyright {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #aaa; /* Ändere die Farbe des Copyright-Textes */
-            font-size: 14px; /* Ändere die Schriftgröße des Copyright-Textes */
-            margin-top: 20px; /* Ändere den oberen Abstand des Copyright-Textes */
-        }
     </style>
 </head>
 <body>
-    <h1 class="pc animated">Pulse Client</h1>
-    <p class="pb animated">Der Pulse Client befindet sich noch in der Entwicklung. Auf der Website werden in den nächsten Monaten immer mehr Funktionen hinzugefügt. Weitere Informationen folgen.</p>
-    <p class="copyright">© 2024 Pulse Client. Alle Rechte vorbehalten.</p>
+    <h1 class="pc">Pulse Client</h1>
+    <p class="pb">Der Pulse Client befindet sich noch in der Entwicklung. Auf der Website werden in den nächsten Monaten immer mehr Funktionen hinzugefügt. Weitere Informationen folgen.</p>
+    <div class="social-buttons">
+        <a href="https://www.youtube.com/@PulseClient" class="social-button"><i class="fab fa-youtube" style="color: #e60505;"></i></a>
+        <a href="https://www.tiktok.com/@pulseclient?lang=de-DE" class="social-button"><i class="fab fa-tiktok" style="color: #ffffff;"></i></a>
+        <a href="https://twitter.com/PulseClient" class="social-button"><i class="fab fa-twitter" style="color: #1d8bf1;"></i></a>
+    </div>
+    <p class="copyright">© 2024 PulseClient. Alle Rechte vorbehalten.</p>
 </body>
 </html>
-
