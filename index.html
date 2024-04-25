@@ -22,7 +22,11 @@
 
         .pc {
             font-family: Arial, Helvetica, sans-serif;
-            color: aliceblue;
+            /* Hinzufügen der Textanimation */
+            color: transparent; /* Setze die Textfarbe auf transparent */
+            background: -webkit-linear-gradient(99deg, #00ff1e, #00ffe1); /* Setze den Farbverlauf als Hintergrund */
+            -webkit-background-clip: text; /* Setze den Text als Maskierung für den Farbverlauf */
+            -webkit-text-fill-color: transparent; /* Setze die Textfarbe auf transparent, um den Text sichtbar zu machen */
             font-size: 36px; /* Ändere die Schriftgröße des Titels */
             margin-bottom: 20px; /* Ändere den Abstand zwischen Titel und Beschreibung */
             animation: fadeIn 1s ease-in-out; /* Textanimation */
@@ -45,6 +49,11 @@
 
         .social-button {
             margin: 0 10px; /* Ändere den Abstand zwischen den Buttons */
+            font-size: 24px; /* Ändere die Schriftgröße der Symbole */
+            color: transparent; /* Setze die Textfarbe auf transparent */
+            background: -webkit-linear-gradient(99deg, #00ff1e, #00ffe1); /* Setze den Farbverlauf als Hintergrund */
+            -webkit-background-clip: text; /* Setze den Text als Maskierung für den Farbverlauf */
+            -webkit-text-fill-color: transparent; /* Setze die Textfarbe auf transparent, um den Text sichtbar zu machen */
         }
 
         .copyright {
@@ -68,9 +77,9 @@
     <h1 class="pc">Pulse Client</h1>
     <p class="pb">Der Pulse Client befindet sich noch in der Entwicklung. Auf der Website werden in den nächsten Monaten immer mehr Funktionen hinzugefügt. Weitere Informationen folgen.</p>
     <div class="social-buttons">
-        <a href="https://www.youtube.com/@PulseClient" class="social-button"><i class="fab fa-youtube" style="color: #e60505;"></i></a>
-        <a href="https://www.tiktok.com/@pulseclient?lang=de-DE" class="social-button"><i class="fab fa-tiktok" style="color: #ffffff;"></i></a>
-        <a href="https://twitter.com/PulseClient" class="social-button"><i class="fab fa-twitter" style="color: #1d8bf1;"></i></a>
+        <a href="https://www.youtube.com/@PulseClient" class="social-button"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@pulseclient?lang=de-DE" class="social-button"><i class="fab fa-tiktok"></i></a>
+        <a href="https://twitter.com/PulseClient" class="social-button"><i class="fab fa-twitter"></i></a>
     </div>
     <p class="copyright">© 2024 PulseClient. Alle Rechte vorbehalten.</p>
 </body>
