@@ -15,16 +15,15 @@
   <div id="status"></div>
 </form>
 
+<div id="image-container">
+  <img id="uploaded-image" src="placeholder.png" alt="Uploaded Image">
+</div>
+
 <script>
   function upload() {
     var formData = new FormData();
     var imageFile = document.getElementById('image-input').files[0];
     var text = document.getElementById('text-input').value;
-
-    if (!imageFile) {
-      alert("Bitte wählen Sie ein Bild aus.");
-      return;
-    }
 
     formData.append('image', imageFile);
     formData.append('text', text);
@@ -35,13 +34,16 @@
     xhr.onload = function() {
       if (xhr.status == 200) {
         document.getElementById('status').innerHTML = '<i class="fas fa-check" style="color: #00ff40;"></i> Bild wurde erfolgreich hochgeladen.';
+        document.getElementById('uploaded-image').src = URL.createObjectURL(imageFile);
       } else {
         document.getElementById('status').innerHTML = '<i class="fas fa-circle-exclamation" style="color: #c90317;"></i> Fehler beim Hochladen des Bildes.';
+        document.getElementById('uploaded-image').src = 'placeholder.png';
       }
     };
 
     xhr.onerror = function() {
       document.getElementById('status').innerHTML = '<i class="fas fa-circle-exclamation" style="color: #c90317;"></i> Fehler beim Hochladen des Bildes.';
+      document.getElementById('uploaded-image').src = 'placeholder.png';
     };
 
     xhr.send(formData);
