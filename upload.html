@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Form</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<form id="upload-form" enctype="multipart/form-data">
+  <input id="image-input" type="file" name="image" accept="image/*">
+  <textarea id="text-input" name="text" placeholder="Text eingeben"></textarea>
+  <button type="button" onclick="upload()">Hochladen</button>
+  <div id="status"></div>
+</form>
+
+<script>
+  function upload() {
+    var formData = new FormData();
+    var imageFile = document.getElementById('image-input').files[0];
+    var text = document.getElementById('text-input').value;
+
+    if (!imageFile) {
+      alert("Bitte wählen Sie ein Bild aus.");
+      return;
+    }
+
+    formData.append('image', imageFile);
+    formData.append('text', text);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'upload.php', true);
+
+    xhr.onload = function() {
+      if (xhr.status == 200) {
+        document.getElementById('status').innerHTML = '<i class="fas fa-check" style="color: #00ff40;"></i> Bild wurde erfolgreich hochgeladen.';
+      } else {
+        document.getElementById('status').innerHTML = '<i class="fas fa-circle-exclamation" style="color: #c90317;"></i> Fehler beim Hochladen des Bildes.';
+      }
+    };
+
+    xhr.onerror = function() {
+      document.getElementById('status').innerHTML = '<i class="fas fa-circle-exclamation" style="color: #c90317;"></i> Fehler beim Hochladen des Bildes.';
+    };
+
+    xhr.send(formData);
+  }
+</script>
+
+</body>
+</html>

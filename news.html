@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Box</title>
+  <style>
+    .news-box {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 20px;
+      padding: 10px;
+      display: flex;
+    }
+
+    .image-container {
+      flex: 1;
+    }
+
+    .text-container {
+      flex: 2;
+      padding: 0 10px;
+    }
+
+    #uploaded-image {
+      max-width: 100%;
+      max-height: 300px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="news-box">
+  <div class="image-container">
+    <img id="uploaded-image" src="#" alt="Uploaded Image">
+  </div>
+  <div class="text-container">
+    <p id="uploaded-text">Hier steht der hochgeladene Text.</p>
+  </div>
+</div>
+
+<script>
+  // Hier könntest du JavaScript verwenden, um Bilder und Texte hochzuladen und sie in die Box einzufügen.
+
+  // Beispiel:
+  document.getElementById('uploaded-image').src = 'bild.jpg';
+  document.getElementById('uploaded-text').innerText = 'Hier steht der hochgeladene Text.';
+</script>
+
+</body>
+</html>
