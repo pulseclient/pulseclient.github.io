@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS einbinden -->
 
     <style>
+        /* Hier deine CSS-Stile */
         body {
             background-color: #333; /* Dunkelgraue Hintergrundfarbe */
             display: flex;
@@ -56,6 +57,48 @@
             -webkit-text-fill-color: transparent; /* Setze die Textfarbe auf transparent, um den Text sichtbar zu machen */
         }
 
+        .flag-image {
+            position: absolute;
+            width: 30px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .flag-usa {
+            top: 10px;
+            left: 10px;
+        }
+
+        .flag-russia {
+            top: 10px;
+            left: 50px;
+        }
+
+        .flag-germany {
+            top: 10px;
+            left: 90px;
+        }
+
+        .flag-image.active {
+            border: 2px solid white;
+        }
+
+        .flag-image.active:hover {
+            border: 2px solid white;
+        }
+
+        .flag-image:hover {
+            border: 2px solid gray;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
         .copyright {
             font-family: Arial, Helvetica, sans-serif;
             color: #aaa; /* Ändere die Farbe des Copyright-Textes */
@@ -74,13 +117,41 @@
     </style>
 </head>
 <body>
+    <img src="united-states.png" alt="USA Flag" class="flag-image flag-usa" onclick="changeLanguage('en')">
+    <img src="russia.png" alt="Russia Flag" class="flag-image flag-russia" onclick="changeLanguage('ru')">
+    <img src="germany.png" alt="Germany Flag" class="flag-image flag-germany" onclick="changeLanguage('de')">
     <h1 class="pc">Pulse Client</h1>
-    <p class="pb">Der Pulse Client befindet sich noch in der Entwicklung. Auf der Website werden in den nächsten Monaten immer mehr Funktionen hinzugefügt. Weitere Informationen folgen.</p>
+    <p class="pb" id="text-en">The Pulse Client is still under development. More and more functions will be added to the website over the next few months. More information will follow.</p>
+    <p class="pb hide" id="text-ru">Pulse Client находится в стадии разработки. В течение следующих нескольких месяцев на сайт будут добавляться все новые и новые функции. Дополнительная информация появится позже.</p>
+    <p class="pb hide" id="text-de">Der Pulse Client befindet sich noch in der Entwicklung. Auf der Website werden in den nächsten Monaten immer mehr Funktionen hinzugefügt. Weitere Informationen folgen.</p>
     <div class="social-buttons">
-        <a href="https://www.youtube.com/@PulseClient" class="social-button"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.tiktok.com/@pulseclient?lang=de-DE" class="social-button"><i class="fab fa-tiktok"></i></a>
-        <a href="https://twitter.com/PulseClient" class="social-button"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/@PulseClient" class="social-button" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@pulseclient?lang=de-DE" class="social-button" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://twitter.com/PulseClient" class="social-button" target="_blank"><i class="fab fa-twitter"></i></a>
     </div>
-    <p class="copyright">© 2024 PulseClient. Alle Rechte vorbehalten.</p>
+    <p class="copyright">© 2024 PulseClient. All rights reserved. <a href="Creative Commons.html">Creative Commons</a></p>
+
+    <script>
+        // JavaScript, um die Sprache je nach ausgewählter Flagge zu ändern
+        function changeLanguage(lang) {
+            // Verstecke alle Texte
+            document.getElementById('text-en').classList.add('hide');
+            document.getElementById('text-ru').classList.add('hide');
+            document.getElementById('text-de').classList.add('hide');
+
+            // Zeige den Text entsprechend der ausgewählten Sprache
+            switch (lang) {
+                case 'en':
+                    document.getElementById('text-en').classList.remove('hide');
+                    break;
+                case 'ru':
+                    document.getElementById('text-ru').classList.remove('hide');
+                    break;
+                case 'de':
+                    document.getElementById('text-de').classList.remove('hide');
+                    break;
+            }
+        }
+    </script>
 </body>
 </html>
