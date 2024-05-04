@@ -79,6 +79,11 @@
             left: 90px;
         }
 
+        .flag-japan {
+            top: 10px;
+            left: 130px;
+        }
+
         .flag-image.active {
             border: 2px solid white;
         }
@@ -120,10 +125,12 @@
     <img src="united-states.png" alt="USA Flag" class="flag-image flag-usa" onclick="changeLanguage('en')">
     <img src="russia.png" alt="Russia Flag" class="flag-image flag-russia" onclick="changeLanguage('ru')">
     <img src="germany.png" alt="Germany Flag" class="flag-image flag-germany" onclick="changeLanguage('de')">
+    <img src="japan.png" alt="Japan Flag" class="flag-image flag-japan" onclick="changeLanguage('ja')">
     <h1 class="pc">Pulse Client</h1>
     <p class="pb" id="text-en">The Pulse Client is still under development. More and more functions will be added to the website over the next few months. More information will follow.</p>
     <p class="pb hide" id="text-ru">Pulse Client находится в стадии разработки. В течение следующих нескольких месяцев на сайт будут добавляться все новые и новые функции. Дополнительная информация появится позже.</p>
     <p class="pb hide" id="text-de">Der Pulse Client befindet sich noch in der Entwicklung. Auf der Website werden in den nächsten Monaten immer mehr Funktionen hinzugefügt. Weitere Informationen folgen.</p>
+    <p class="pb hide" id="text-ja">パルスクライアントはまだ開発中です。今後数ヶ月のうちにさらなる機能が追加される予定です。詳細は追って発表いたします。</p>
     <div class="social-buttons">
         <a href="https://www.youtube.com/@PulseClient" class="social-button" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="https://www.tiktok.com/@pulseclient?lang=de-DE" class="social-button" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -138,6 +145,7 @@
             document.getElementById('text-en').classList.add('hide');
             document.getElementById('text-ru').classList.add('hide');
             document.getElementById('text-de').classList.add('hide');
+            document.getElementById('text-ja').classList.add('hide');
 
             // Zeige den Text entsprechend der ausgewählten Sprache
             switch (lang) {
@@ -149,6 +157,9 @@
                     break;
                 case 'de':
                     document.getElementById('text-de').classList.remove('hide');
+                    break;
+                case 'ja':
+                    document.getElementById('text-ja').classList.remove('hide');
                     break;
             }
         }
