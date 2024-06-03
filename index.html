@@ -1,169 +1,148 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pulse Client</title>
-    <link rel="icon" type="image/png" href="P.png"> <!-- Hier "P.png" durch den Dateinamen deines Icons ersetzen -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS einbinden -->
-
+    <title>Pulse</title>
+    <link rel="icon" type="image/png" href="P.png">
     <style>
-        /* Hier deine CSS-Stile */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
         body {
-            background-color: #333; /* Dunkelgraue Hintergrundfarbe */
+            background-color: #1a1a1a;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
-            padding: 0;
-            flex-direction: column;
-            position: relative;
+            font-family: 'Roboto', sans-serif;
         }
 
-        .pc {
-            font-family: Arial, Helvetica, sans-serif;
-            /* Hinzufügen der Textanimation */
-            color: transparent; /* Setze die Textfarbe auf transparent */
-            background: -webkit-linear-gradient(99deg, #00ff1e, #00ffe1); /* Setze den Farbverlauf als Hintergrund */
-            -webkit-background-clip: text; /* Setze den Text als Maskierung für den Farbverlauf */
-            -webkit-text-fill-color: transparent; /* Setze die Textfarbe auf transparent, um den Text sichtbar zu machen */
-            font-size: 36px; /* Ändere die Schriftgröße des Titels */
-            margin-bottom: 20px; /* Ändere den Abstand zwischen Titel und Beschreibung */
-            animation: fadeIn 1s ease-in-out; /* Textanimation */
+        h1 {
+            color: transparent;
+            background: -webkit-linear-gradient(99deg, #00ff1e, #00ffe1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-size: 4rem;
+            margin: 10px;
         }
 
-        .pb {
-            font-family: Arial, Helvetica, sans-serif;
-            color: aliceblue;
-            width: 70%; /* Ändere die Breite der Beschreibung */
-            font-size: 18px; /* Ändere die Schriftgröße der Beschreibung */
-            line-height: 1.5; /* Ändere die Zeilenhöhe für bessere Lesbarkeit */
-            text-align: center; /* Zentriere den Text horizontal */
-            animation: fadeIn 1s ease-in-out; /* Textanimation */
-        }
-
-        .social-buttons {
-            margin-top: 20px; /* Ändere den oberen Abstand der Social Buttons */
-            animation: fadeIn 1s ease-in-out; /* Textanimation */
-        }
-
-        .social-button {
-            margin: 0 10px; /* Ändere den Abstand zwischen den Buttons */
-            font-size: 24px; /* Ändere die Schriftgröße der Symbole */
-            color: transparent; /* Setze die Textfarbe auf transparent */
-            background: -webkit-linear-gradient(99deg, #00ff1e, #00ffe1); /* Setze den Farbverlauf als Hintergrund */
-            -webkit-background-clip: text; /* Setze den Text als Maskierung für den Farbverlauf */
-            -webkit-text-fill-color: transparent; /* Setze die Textfarbe auf transparent, um den Text sichtbar zu machen */
-        }
-
-        .flag-image {
-            position: absolute;
-            width: 30px;
-            height: auto;
+        button {
+            color: transparent;
+            background: -webkit-linear-gradient(99deg, #00ff1e, #00ffe1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-size: 2rem;
+            border: 2px solid transparent;
+            border-image: linear-gradient(99deg, #00ff1e, #00ffe1) 1;
+            padding: 0.5rem 1rem;
             cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px;
         }
 
-        .flag-usa {
-            top: 10px;
-            left: 10px;
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00ff1e, 0 0 40px #00ffe1;
         }
 
-        .flag-russia {
-            top: 10px;
-            left: 50px;
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(99deg, #00ff1e, #00ffe1);
+            border-radius: 50%;
+            animation: float 5s infinite ease-in-out;
+            opacity: 0.7;
         }
 
-        .flag-germany {
-            top: 10px;
-            left: 90px;
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.7;
+            }
         }
 
-        .flag-japan {
-            top: 10px;
-            left: 130px;
+        p {
+            color: white;
+            text-align: center;
         }
 
-        .flag-image.active {
-            border: 2px solid white;
+        .icons {
+            margin-top: 20px;
         }
 
-        .flag-image.active:hover {
-            border: 2px solid white;
+        .icons a {
+            font-size: 2rem;
+            margin: 0 10px;
+            text-decoration: none;
         }
 
-        .flag-image:hover {
-            border: 2px solid gray;
+        .icons .fa-youtube {
+            color: #FF0000;
         }
 
-        .hide {
-            display: none;
+        .icons .fa-tiktok {
+            background: -webkit-linear-gradient(99deg, #ff0050, #00f2ea, #000000);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
-        .show {
-            display: block;
+        .icons .fa-twitter {
+            color: #1DA1F2;
+        }
+
+        .icons .fa-discord {
+            color: #7289DA;
         }
 
         .copyright {
-            font-family: Arial, Helvetica, sans-serif;
-            color: #aaa; /* Ändere die Farbe des Copyright-Textes */
-            font-size: 14px; /* Ändere die Schriftgröße des Copyright-Textes */
             position: absolute;
-            bottom: 10px; /* Ändere den unteren Abstand des Copyright-Textes */
-            left: 10px; /* Ändere den rechten Abstand des Copyright-Textes */
-            animation: fadeIn 1s ease-in-out; /* Textanimation */
-        }
-
-        /* Textanimation */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
-    <img src="united-states.png" alt="USA Flag" class="flag-image flag-usa" onclick="changeLanguage('en')">
-    <img src="russia.png" alt="Russia Flag" class="flag-image flag-russia" onclick="changeLanguage('ru')">
-    <img src="germany.png" alt="Germany Flag" class="flag-image flag-germany" onclick="changeLanguage('de')">
-    <img src="japan.png" alt="Japan Flag" class="flag-image flag-japan" onclick="changeLanguage('ja')">
-    <h1 class="pc">Pulse Client</h1>
-    <p class="pb" id="text-en">The Pulse Client is still under development. More and more functions will be added to the website over the next few months. More information will follow.</p>
-    <p class="pb hide" id="text-ru">Pulse Client находится в стадии разработки. В течение следующих нескольких месяцев на сайт будут добавляться все новые и новые функции. Дополнительная информация появится позже.</p>
-    <p class="pb hide" id="text-de">Der Pulse Client befindet sich noch in der Entwicklung. Auf der Website werden in den nächsten Monaten immer mehr Funktionen hinzugefügt. Weitere Informationen folgen.</p>
-    <p class="pb hide" id="text-ja">パルスクライアントはまだ開発中です。今後数ヶ月のうちにさらなる機能が追加される予定です。詳細は追って発表いたします。</p>
-    <div class="social-buttons">
-        <a href="https://www.youtube.com/@PulseClient" class="social-button" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.tiktok.com/@pulseclient?lang=de-DE" class="social-button" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://twitter.com/PulseClient" class="social-button" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://discord.gg/w48Ma5RrH7" class="social-button"><i class="fab fa-discord"></i></a>
+    <h1>Pulse</h1>
+    <p>wir haben unser konzept geändert wir sind nicht mehr ein client <br>sondern eine platform für Minecraft Mods und das ultimative tool für Minecraft
+    <br>Andere Sprachen kommen bald</p>
+    
+    <div class="icons">
+        <a href="https://www.youtube.com/@PulseClient" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.tiktok.com/@pulseclient?lang=de-DE" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://x.com/PulseClient" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://discord.com/invite/w48Ma5RrH7" target="_blank"><i class="fa-brands fa-discord"></i></a>
     </div>
-    <p class="copyright">© 2024 PulseClient. All rights reserved. <a href="Creative Commons.html">Creative Commons</a></p>
-
+    
+    <div class="copyright">© 2024 Pulse</div>
+    
     <script>
-        // JavaScript, um die Sprache je nach ausgewählter Flagge zu ändern
-        function changeLanguage(lang) {
-            // Verstecke alle Texte
-            document.getElementById('text-en').classList.add('hide');
-            document.getElementById('text-ru').classList.add('hide');
-            document.getElementById('text-de').classList.add('hide');
-            document.getElementById('text-ja').classList.add('hide');
-
-            // Zeige den Text entsprechend der ausgewählten Sprache
-            switch (lang) {
-                case 'en':
-                    document.getElementById('text-en').classList.remove('hide');
-                    break;
-                case 'ru':
-                    document.getElementById('text-ru').classList.remove('hide');
-                    break;
-                case 'de':
-                    document.getElementById('text-de').classList.remove('hide');
-                    break;
-                case 'ja':
-                    document.getElementById('text-ja').classList.remove('hide');
-                    break;
-            }
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.top = Math.random() * 100 + 'vh';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(particle);
+            setTimeout(() => {
+                particle.remove();
+            }, 5000);
         }
+
+        setInterval(createParticle, 200);
     </script>
 </body>
 </html>
